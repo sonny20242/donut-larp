@@ -1,5 +1,7 @@
 name: build
 on: [push, workflow_dispatch]
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,14 +23,19 @@ jobs:
         with:
           gradle-version: current
       - name: Build
+        shell: bash
         run: gradle build --no-daemon --stacktrace 2>&1 | tee build.log
-      - uses: actions/upload-artifact@v4
+      - name: Save log into the repo
         if: always()
-        with:
-          name: build-log
-          path: build.log
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          mkdir -p logs
+          cp build.log logs/build.log
+          git add -f logs/build.log
+          git commit -m "build log" || true
+          git push origin HEAD:main
       - uses: actions/upload-artifact@v4
         with:
           name: donutlarp-jar
           path: build/libs/*.jar
-          if-no-files-found: warn
