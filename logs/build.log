@@ -5,12 +5,64 @@ Daemon will be stopped at the end of the build
 Fabric Loom: 1.9.2
 :remapping 50 mods from modImplementation (java-api)
 
+> Task :compileJava
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/LarpScreen.java:186: error: annotation interface not applicable to this kind of declaration
+        @Override
+        ^
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarpClient.java:38: error: cannot find symbol
+        CONFIG = DonutConfig.load();
+                            ^
+  symbol:   method load()
+  location: class DonutConfig
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarpClient.java:58: error: cannot find symbol
+        return CONFIG != null && client != null && CONFIG.isAllowedOn(client);
+                                                         ^
+  symbol:   method isAllowedOn(MinecraftClient)
+  location: variable CONFIG of type DonutConfig
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarpClient.java:77: error: cannot find symbol
+                    Text.literal("LOCAL BALANCE: $" + DonutConfig.formatAmount(CONFIG.money))
+                                                                 ^
+  symbol:   method formatAmount(double)
+  location: class DonutConfig
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarpClient.java:106: error: cannot find symbol
+        context.drawTextWithShadow(client.textRenderer, NameSwap.getDisplayText(), tx, ty + 28, cream);
+                                                                ^
+  symbol:   method getDisplayText()
+  location: class NameSwap
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarpClient.java:107: error: cannot find symbol
+        context.drawTextWithShadow(client.textRenderer, "Money: $" + DonutConfig.formatAmount(CONFIG.money), tx, ty + 43, cream);
+                                                                                ^
+  symbol:   method formatAmount(double)
+  location: class DonutConfig
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarpClient.java:108: error: cannot find symbol
+        context.drawTextWithShadow(client.textRenderer, "Shards: " + DonutConfig.formatAmount(CONFIG.shards), tx, ty + 56, cream);
+                                                                                ^
+  symbol:   method formatAmount(double)
+  location: class DonutConfig
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/mixin/ChatHudMixin.java:15: error: cannot find symbol
+        return NameSwap.replaceUnsignedText(message);
+                       ^
+  symbol:   method replaceUnsignedText(Text)
+  location: class NameSwap
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/mixin/PlayerListHudMixin.java:21: error: cannot find symbol
+        if (!entry.getProfile().name().equals(me)) return;
+                               ^
+  symbol:   method name()
+  location: class GameProfile
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarp.java:40: error: cannot find symbol
+        KeyBinding.Category category =
+                  ^
+  symbol:   class Category
+  location: class KeyBinding
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarp.java:41: error: cannot find symbol
+                KeyBinding.Category.create(
+                          ^
+  symbol:   variable Category
+  location: class KeyBinding
+11 errors
+
 > Task :compileJava FAILED
-/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarp.java:69: error: ')' or ',' expected
-                DonutLarp::renderBoard
-                                      ^
-1 error
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1794258756233.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1794259044383.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/donut-larp/donut-larp/build/reports/problems/problems-report.html
 
@@ -19,10 +71,60 @@ FAILURE: Build failed with an exception.
 * What went wrong:
 Execution failed for task ':compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarp.java:69: error: ')' or ',' expected
-                  DonutLarp::renderBoard
-                                        ^
-  1 error
+  /home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/LarpScreen.java:186: error: annotation interface not applicable to this kind of declaration
+          @Override
+          ^
+  /home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarpClient.java:38: error: cannot find symbol
+          CONFIG = DonutConfig.load();
+                              ^
+    symbol:   method load()
+    location: class DonutConfig
+  /home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarpClient.java:58: error: cannot find symbol
+          return CONFIG != null && client != null && CONFIG.isAllowedOn(client);
+                                                           ^
+    symbol:   method isAllowedOn(MinecraftClient)
+    location: variable CONFIG of type DonutConfig
+  /home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarpClient.java:77: error: cannot find symbol
+                      Text.literal("LOCAL BALANCE: $" + DonutConfig.formatAmount(CONFIG.money))
+                                                                   ^
+    symbol:   method formatAmount(double)
+    location: class DonutConfig
+  /home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarpClient.java:106: error: cannot find symbol
+          context.drawTextWithShadow(client.textRenderer, NameSwap.getDisplayText(), tx, ty + 28, cream);
+                                                                  ^
+    symbol:   method getDisplayText()
+    location: class NameSwap
+  /home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarpClient.java:107: error: cannot find symbol
+          context.drawTextWithShadow(client.textRenderer, "Money: $" + DonutConfig.formatAmount(CONFIG.money), tx, ty + 43, cream);
+                                                                                  ^
+    symbol:   method formatAmount(double)
+    location: class DonutConfig
+  /home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarpClient.java:108: error: cannot find symbol
+          context.drawTextWithShadow(client.textRenderer, "Shards: " + DonutConfig.formatAmount(CONFIG.shards), tx, ty + 56, cream);
+                                                                                  ^
+    symbol:   method formatAmount(double)
+    location: class DonutConfig
+  /home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/mixin/ChatHudMixin.java:15: error: cannot find symbol
+          return NameSwap.replaceUnsignedText(message);
+                         ^
+    symbol:   method replaceUnsignedText(Text)
+    location: class NameSwap
+  /home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/mixin/PlayerListHudMixin.java:21: error: cannot find symbol
+          if (!entry.getProfile().name().equals(me)) return;
+                                 ^
+    symbol:   method name()
+    location: class GameProfile
+  /home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarp.java:40: error: cannot find symbol
+          KeyBinding.Category category =
+                    ^
+    symbol:   class Category
+    location: class KeyBinding
+  /home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarp.java:41: error: cannot find symbol
+                  KeyBinding.Category.create(
+                            ^
+    symbol:   variable Category
+    location: class KeyBinding
+  11 errors
 
 * Try:
 > Check your code and dependencies to fix the compilation error(s)
@@ -59,10 +161,60 @@ org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':compile
 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:65)
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
-/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarp.java:69: error: ')' or ',' expected
-                DonutLarp::renderBoard
-                                      ^
-1 error
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/LarpScreen.java:186: error: annotation interface not applicable to this kind of declaration
+        @Override
+        ^
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarpClient.java:38: error: cannot find symbol
+        CONFIG = DonutConfig.load();
+                            ^
+  symbol:   method load()
+  location: class DonutConfig
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarpClient.java:58: error: cannot find symbol
+        return CONFIG != null && client != null && CONFIG.isAllowedOn(client);
+                                                         ^
+  symbol:   method isAllowedOn(MinecraftClient)
+  location: variable CONFIG of type DonutConfig
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarpClient.java:77: error: cannot find symbol
+                    Text.literal("LOCAL BALANCE: $" + DonutConfig.formatAmount(CONFIG.money))
+                                                                 ^
+  symbol:   method formatAmount(double)
+  location: class DonutConfig
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarpClient.java:106: error: cannot find symbol
+        context.drawTextWithShadow(client.textRenderer, NameSwap.getDisplayText(), tx, ty + 28, cream);
+                                                                ^
+  symbol:   method getDisplayText()
+  location: class NameSwap
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarpClient.java:107: error: cannot find symbol
+        context.drawTextWithShadow(client.textRenderer, "Money: $" + DonutConfig.formatAmount(CONFIG.money), tx, ty + 43, cream);
+                                                                                ^
+  symbol:   method formatAmount(double)
+  location: class DonutConfig
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarpClient.java:108: error: cannot find symbol
+        context.drawTextWithShadow(client.textRenderer, "Shards: " + DonutConfig.formatAmount(CONFIG.shards), tx, ty + 56, cream);
+                                                                                ^
+  symbol:   method formatAmount(double)
+  location: class DonutConfig
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/mixin/ChatHudMixin.java:15: error: cannot find symbol
+        return NameSwap.replaceUnsignedText(message);
+                       ^
+  symbol:   method replaceUnsignedText(Text)
+  location: class NameSwap
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/mixin/PlayerListHudMixin.java:21: error: cannot find symbol
+        if (!entry.getProfile().name().equals(me)) return;
+                               ^
+  symbol:   method name()
+  location: class GameProfile
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarp.java:40: error: cannot find symbol
+        KeyBinding.Category category =
+                  ^
+  symbol:   class Category
+  location: class KeyBinding
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarp.java:41: error: cannot find symbol
+                KeyBinding.Category.create(
+                          ^
+  symbol:   variable Category
+  location: class KeyBinding
+11 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
 	at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.delegateAndHandleErrors(NormalizingJavaCompiler.java:98)
@@ -203,5 +355,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.9.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD FAILED in 15s
+BUILD FAILED in 28s
 1 actionable task: 1 executed
