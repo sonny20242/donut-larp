@@ -5,14 +5,12 @@ Daemon will be stopped at the end of the build
 Fabric Loom: 1.9.2
 :remapping 50 mods from modImplementation (java-api)
 
-> Task :compileJava
-/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarp.java:8: error: package net.fabricmc.fabric.api.client.rendering.v1.hud does not exist
-import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
-                                                      ^
-1 error
-
 > Task :compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1794258248955.json
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarp.java:69: error: ')' or ',' expected
+                DonutLarp::renderBoard
+                                      ^
+1 error
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1794258669255.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/donut-larp/donut-larp/build/reports/problems/problems-report.html
 
@@ -21,9 +19,9 @@ FAILURE: Build failed with an exception.
 * What went wrong:
 Execution failed for task ':compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarp.java:8: error: package net.fabricmc.fabric.api.client.rendering.v1.hud does not exist
-  import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
-                                                        ^
+  /home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarp.java:69: error: ')' or ',' expected
+                  DonutLarp::renderBoard
+                                        ^
   1 error
 
 * Try:
@@ -61,9 +59,9 @@ org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':compile
 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:65)
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
-/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarp.java:8: error: package net.fabricmc.fabric.api.client.rendering.v1.hud does not exist
-import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
-                                                      ^
+/home/runner/work/donut-larp/donut-larp/src/main/java/com/example/donutlarp/DonutLarp.java:69: error: ')' or ',' expected
+                DonutLarp::renderBoard
+                                      ^
 1 error
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
@@ -205,5 +203,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.9.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD FAILED in 46s
+BUILD FAILED in 12s
 1 actionable task: 1 executed
