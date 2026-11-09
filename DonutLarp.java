@@ -5,7 +5,8 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.message.v1.ClientReceiveMessageEvents;
 import net.fabricmc.fabric.api.client.message.v1.ClientSendMessageEvents;
-import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.HudLayerRegistrationCallback;
+import net.fabricmc.fabric.api.client.rendering.v1.IdentifiedLayer;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
@@ -61,7 +62,11 @@ public class DonutLarp implements ClientModInitializer {
             return !c.localPay;
         });
 
-        HudElementRegistry.addLast(Identifier.of("donutlarp", "board"), DonutLarp::renderBoard);
+        HudLayerRegistrationCallback.EVENT.register(layeredDrawer ->
+        layeredDrawer.attachLayerAfter(
+                IdentifiedLayer.MISC_OVERLAYS,
+                Identifier.of("donutlarp", "board"),
+                DonutLarp::renderBoard
     }
 
     private static void renderBoard(DrawContext ctx, RenderTickCounter tick) {
