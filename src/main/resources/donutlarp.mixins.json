@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "com.example.donutlarp.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "ChatHudMixin",
+    "PlayerListHudMixin",
+    "InGameHudMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "donutlarp",
+  "version": "${version}",
+  "name": "Donut Larp",
+  "description": "A client-side DonutSMP-style stats and identity display. Local-only visuals; server commands remain server-authoritative.",
+  "authors": ["Donut Larp"],
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.example.donutlarp.DonutLarpClient"
+    ]
+  },
+  "mixins": [
+    "donutlarp.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.9",
+    "minecraft": "1.21.4",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
