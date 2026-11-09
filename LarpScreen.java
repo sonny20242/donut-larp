@@ -180,11 +180,11 @@ public class LarpScreen extends Screen {
         FlatButton(int x, int y, int w, int h, String label, PressAction action) {
             super(x, y, w, h, net.minecraft.text.Text.literal(label), action, DEFAULT_NARRATION_SUPPLIER);
         }
-
+public void renderWidget(DrawContext c, int mx, int my, float delta) {
         // In 1.21.11 the button background is drawn by the parent class, then this is called.
         // We cover it with our own flat style.
         @Override
-        public void drawIcon(DrawContext c, int mx, int my, float delta) {
+        
             int x = getX(), y = getY(), w = getWidth(), h = getHeight();
             int bg = selected ? PINK : (isHovered() ? 0xFF3A2A30 : 0xFF2A1D22);
             c.fill(x, y, x + w, y + h, bg);
