@@ -5,6 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Arrange files
+        run: |
+          mkdir -p src/main/java/com/example/donutlarp/mixin
+          mkdir -p src/main/resources/assets/donutlarp/lang
+          mv DonutConfig.java DonutLarp.java LarpScreen.java NameSwap.java src/main/java/com/example/donutlarp/
+          mv InGameHudMixin.java PlayerListHudMixin.java src/main/java/com/example/donutlarp/mixin/
+          mv fabric.mod.json donutlarp.mixins.json src/main/resources/
+          mv en_us.json src/main/resources/assets/donutlarp/lang/
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
