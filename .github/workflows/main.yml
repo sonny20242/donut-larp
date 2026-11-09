@@ -20,8 +20,15 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: current
-      - run: gradle build --no-daemon
+      - name: Build
+        run: gradle build --no-daemon --stacktrace 2>&1 | tee build.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: build-log
+          path: build.log
       - uses: actions/upload-artifact@v4
         with:
           name: donutlarp-jar
           path: build/libs/*.jar
+          if-no-files-found: warn
