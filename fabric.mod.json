@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "donutlarp",
+  "version": "${version}",
+  "name": "Donut Larp",
+  "description": "Client-side visual stats, rank and name for DonutSMP. Only you see it.",
+  "environment": "client",
+  "entrypoints": { "client": ["com.example.donutlarp.DonutLarp"] },
+  "mixins": ["donutlarp.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.18.0",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
